@@ -9,7 +9,7 @@ import { MessageService } from 'src/app/_services/message.service';
   styleUrls: ['./member-messages.component.css']
 })
 export class MemberMessagesComponent implements OnInit {
-  @ViewChild('messageFrom') messageFrom:NgForm;
+  @ViewChild('messageForm') messageForm:NgForm;
   @Input() messages:Message[];
   @Input() username:string;
   messageContent:string;
@@ -22,7 +22,7 @@ export class MemberMessagesComponent implements OnInit {
   {
     this.messageService.sendMessage(this.username,this.messageContent).subscribe(message=>{
       this.messages.push(message);
-      this.messageFrom.reset();
+      this.messageForm.reset();
     })
   }
 
